@@ -1,0 +1,56 @@
+schema_version: "1.0"
+project:
+  slug: apr-research-dashboard
+  locale: ko-KR
+  timezone: Asia/Seoul
+  environment: development
+  allow_production_fixtures: false
+
+scope:
+  primary_company: apr
+  future_companies: [com2us]
+  marketplaces: [US, GB, DE, FR, IT, ES]
+  categories: [beauty, skincare]
+  europe_group: [GB, DE, FR, IT, ES]
+
+features:
+  dart: true
+  trade: true
+  amazon_dashboard: true
+  amazon_unauthorized_scraping: false
+  research_link_library: true
+  telegram_content_ingestion: false
+  ai: false
+  excel_writeback: false
+  telegram_notifications: false
+  com2us_module: false
+  public_anonymous_access: false
+
+budget:
+  paid_services_enabled: false
+  monthly_ai_budget_krw: 0
+  max_new_monthly_spend_krw: 9999
+  approval_required_for_any_paid_service: true
+
+quality:
+  top_n: 100
+  amazon_stale_after_hours: 36
+  schedule_grace_minutes: 120
+  rolling_7d_min_valid: 5
+  rolling_30d_min_valid: 24
+  europe5_required_markets: 5
+  treat_missing_as_zero: false
+
+retention:
+  full_rank_days: 35
+  apr_rank_target_months: 24
+  raw_max_days: 14
+  raw_enabled_by_default: false
+  detailed_log_days: 30
+  enforce_source_license_first: true
+
+imports:
+  allowed_formats: [csv, json]
+  max_file_mb: 5
+  max_rows: 10000
+  server_validation_required: true
