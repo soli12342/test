@@ -13,6 +13,8 @@ function publicKey(k: string) {
 export const configured = Boolean(
   url && /^https:\/\/[a-z0-9-]+\.supabase\.co$/.test(url) && publicKey(key),
 );
+export const googleAuthEnabled =
+  configured && import.meta.env.VITE_GOOGLE_AUTH_ENABLED === "true";
 export const client = configured
   ? createClient(url, key, {
       auth: {
@@ -65,6 +67,7 @@ export async function membership(): Promise<Role> {
 }
 export async function login() {
   if (!client) throw Error("SOURCE_NOT_CONFIGURED");
+  if (!googleAuthEnabled) throw Error("Google 로그인 설정을 준비 중입니다.");
   const { error } = await client.auth.signInWithOAuth({
     provider: "google",
     options: { redirectTo: window.location.origin + "/login" },

@@ -16,7 +16,7 @@ import {
   useSearchParams,
   Link,
 } from "react-router-dom";
-import { client, configured, login, membership, rpc } from "./api";
+import { client, configured, googleAuthEnabled, login, membership, rpc } from "./api";
 import { kstDate, allowedURL } from "./contracts";
 import marketConfig from "../../../config/amazon_markets.json";
 import type { Role, Series, Snapshot } from "./types";
@@ -78,11 +78,14 @@ function Login({ message }: { message: string }) {
         <p>승인된 가족·지인 계정으로 로그인하세요.</p>
         <button
           className="primary"
-          disabled={!configured}
+          disabled={!googleAuthEnabled}
           onClick={() => login().catch((e) => setError(e.message))}
         >
           Google로 로그인
         </button>
+        {configured && !googleAuthEnabled && (
+          <Notice>데이터베이스 연결 완료 · Google 로그인 설정을 준비 중입니다.</Notice>
+        )}
         {!configured && (
           <>
             <Notice>

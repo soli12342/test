@@ -14,6 +14,7 @@ const mocks = vi.hoisted(() => ({
 }));
 vi.mock("../src/api", () => ({
   configured: true,
+  googleAuthEnabled: false,
   client: {
     auth: {
       getSession: async () => ({ data: { session: { user: { id: "test" } } } }),
