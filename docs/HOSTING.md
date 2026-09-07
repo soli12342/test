@@ -29,14 +29,21 @@ Sites 본인 접근 인증과 앱의 Google 로그인은 별개다. 첫 화면 �
 유료 플랜·도메인 구매·자동 수집·자동 발송은 활성화하지 않는다.
 
 
+## 2026-09-07 Google OAuth 연결 검증
+
+- Supabase Auth `/auth/v1/settings`에서 Google provider가 `true`로 활성화된 것을 확인했다.
+- Google Client Secret은 Supabase provider에만 저장했고 Chat·Git·웹 빌드에는 포함하지 않았다.
+- 웹 빌드 플래그를 `VITE_GOOGLE_AUTH_ENABLED=true`로 전환해 Google 로그인 버튼을 활성화한다.
+- 실제 Google 계정 로그인과 첫 Admin 부트스트랩은 새 배포 후 진행한다.
+
 ## 2026-09-06 실제 연결 검증
 
 - 21개 앱 테이블, RLS 미적용 0개, 카테고리 12개, 관측값 0건.
 - hosted Supabase의 기본 권한을 확인하고 anon 테이블/RPC 접근, authenticated TRUNCATE 및 직접 쓰기를 명시적으로 철회했다. worker 함수는 service_role 전용이다.
 - 실제 공개 키 HTTP 요청에서 비회원 테이블 조회와 membership RPC 거부를 확인했다.
-- Auth `/auth/v1/settings`: Google provider false. 실제 Google Client ID/Secret, URL allowlist 설정은 아직 완료하지 않았다.
+- 당시 Auth `/auth/v1/settings`에서 Google provider가 false였으며, 2026-09-07 사용자 설정 후 true로 전환된 것을 재확인했다.
 - Google의 승인된 redirect URI: `https://jxqukbwnsnfzlnqocuju.supabase.co/auth/v1/callback`.
-- 웹 공개 URL/키를 Sites 설정에 보관하고 정적 빌드에 주입한다. `VITE_GOOGLE_AUTH_ENABLED=false`로 설정 대기 상태를 표시한다. Google provider 및 redirect 설정 검증 후 true로 변경하고 다시 빌드·배포한다.
+- 웹 공개 URL/키를 Sites 설정에 보관하고 정적 빌드에 주입한다. Google provider 활성화 확인 후 `VITE_GOOGLE_AUTH_ENABLED=true`로 변경해 다시 빌드·배포한다.
 - Supabase 연결 도구는 Auth 설정 수정이나 Google OAuth 클라이언트 발급 기능을 제공하지 않는다. Google 비밀키는 Supabase provider 설정에 직접 입력하며 Chat/Git에 보내지 않는다.
 - 보안 Advisor의 12개 SECURITY DEFINER 경고는 회원/관리자 검사 후 private 테이블을 다루는 의도된 RPC다. 4개 RLS 정책 없음 안내는 private 테이블 직접 접근을 전면 차단한 설계다. 무조건 허용 정책으로 경고를 없애지 않는다.
 - Advisor 설명: https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable 와 https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy
