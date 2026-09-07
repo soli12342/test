@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths:
-      - "hello.py"
+      - "**.py"
       - ".github/workflows/run-python.yml"
 
 jobs:
@@ -22,5 +22,14 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install test dependencies
+        run: pip install pytest
+
       - name: Run hello.py
         run: python hello.py
+
+      - name: Run calculator example
+        run: python calculator.py 3 + 4
+
+      - name: Run tests
+        run: pytest -q
