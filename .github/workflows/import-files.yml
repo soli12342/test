@@ -1,0 +1,24 @@
+name: APR approved file worker
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: apr-import-worker
+  cancel-in-progress: false
+jobs:
+  import:
+    if: vars.APR_IMPORT_WORKER_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.lock
+      - run: python -m jobs.imports.worker --max-jobs 10
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+      # No schedule until M5; no paid service, data collector, AI or message sending.

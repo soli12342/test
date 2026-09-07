@@ -1,0 +1,4 @@
+-- Run ONCE through the owner's trusted SQL console after verifying the Auth UUID.
+-- Do not infer Admin from first sign-up, email supplied by browser, or user_metadata.
+-- Replace only in your private console. Never commit the real Auth ID.
+-- insert into private.memberships(user_id,role) values('<verified-auth-user-uuid>','admin');

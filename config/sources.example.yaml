@@ -1,0 +1,44 @@
+sources:
+  - id: amazon_primary
+    type: amazon_rank
+    enabled: false
+    mode: unconfigured
+    permissions_reviewed: false
+    capability_verification: pending
+    api_endpoint: null
+    secret_reference: null
+
+  - id: customs_primary
+    type: trade_statistics
+    enabled: false
+    mode: official_api_pending
+    api_endpoint: null
+    secret_reference: CUSTOMS_API_KEY
+    supported_periods: []
+
+  - id: dart_primary
+    type: filing
+    enabled: false
+    mode: official_api
+    secret_reference: DART_API_KEY
+    company_corp_code: null
+
+  - id: research_kwon_woojeong
+    display_name: 권우정
+    type: research_channel
+    mode: link_only
+    channel_url: null
+    chat_id: null
+    collection_allowed: false
+    ai_allowed: false
+    share_original_allowed: false
+
+  - id: research_kim_myeongju
+    display_name: 김명주
+    type: research_channel
+    mode: link_only
+    channel_url: null
+    chat_id: null
+    collection_allowed: false
+    ai_allowed: false
+    share_original_allowed: false

@@ -1,0 +1,180 @@
+{
+  "markets": [
+    {
+      "code": "US",
+      "name": "미국",
+      "domain": "amazon.com",
+      "currency": "USD",
+      "timezone": "America/New_York"
+    },
+    {
+      "code": "GB",
+      "name": "영국",
+      "domain": "amazon.co.uk",
+      "currency": "GBP",
+      "timezone": "Europe/London"
+    },
+    {
+      "code": "DE",
+      "name": "독일",
+      "domain": "amazon.de",
+      "currency": "EUR",
+      "timezone": "Europe/Berlin"
+    },
+    {
+      "code": "FR",
+      "name": "프랑스",
+      "domain": "amazon.fr",
+      "currency": "EUR",
+      "timezone": "Europe/Paris"
+    },
+    {
+      "code": "IT",
+      "name": "이탈리아",
+      "domain": "amazon.it",
+      "currency": "EUR",
+      "timezone": "Europe/Rome"
+    },
+    {
+      "code": "ES",
+      "name": "스페인",
+      "domain": "amazon.es",
+      "currency": "EUR",
+      "timezone": "Europe/Madrid"
+    }
+  ],
+  "categories": [
+    {
+      "id": "US_beauty",
+      "marketplace": "US",
+      "canonical_type": "beauty",
+      "source_node_id": null,
+      "path": null,
+      "version": 1,
+      "verification_status": "pending",
+      "reviewed_on": "2026-09-06",
+      "review_note": "실제 공급원·자료·노드 증거 미제공"
+    },
+    {
+      "id": "US_skincare",
+      "marketplace": "US",
+      "canonical_type": "skincare",
+      "source_node_id": null,
+      "path": null,
+      "version": 1,
+      "verification_status": "pending",
+      "reviewed_on": "2026-09-06",
+      "review_note": "실제 공급원·자료·노드 증거 미제공"
+    },
+    {
+      "id": "GB_beauty",
+      "marketplace": "GB",
+      "canonical_type": "beauty",
+      "source_node_id": null,
+      "path": null,
+      "version": 1,
+      "verification_status": "pending",
+      "reviewed_on": "2026-09-06",
+      "review_note": "실제 공급원·자료·노드 증거 미제공"
+    },
+    {
+      "id": "GB_skincare",
+      "marketplace": "GB",
+      "canonical_type": "skincare",
+      "source_node_id": null,
+      "path": null,
+      "version": 1,
+      "verification_status": "pending",
+      "reviewed_on": "2026-09-06",
+      "review_note": "실제 공급원·자료·노드 증거 미제공"
+    },
+    {
+      "id": "DE_beauty",
+      "marketplace": "DE",
+      "canonical_type": "beauty",
+      "source_node_id": null,
+      "path": null,
+      "version": 1,
+      "verification_status": "pending",
+      "reviewed_on": "2026-09-06",
+      "review_note": "실제 공급원·자료·노드 증거 미제공"
+    },
+    {
+      "id": "DE_skincare",
+      "marketplace": "DE",
+      "canonical_type": "skincare",
+      "source_node_id": null,
+      "path": null,
+      "version": 1,
+      "verification_status": "pending",
+      "reviewed_on": "2026-09-06",
+      "review_note": "실제 공급원·자료·노드 증거 미제공"
+    },
+    {
+      "id": "FR_beauty",
+      "marketplace": "FR",
+      "canonical_type": "beauty",
+      "source_node_id": null,
+      "path": null,
+      "version": 1,
+      "verification_status": "pending",
+      "reviewed_on": "2026-09-06",
+      "review_note": "실제 공급원·자료·노드 증거 미제공"
+    },
+    {
+      "id": "FR_skincare",
+      "marketplace": "FR",
+      "canonical_type": "skincare",
+      "source_node_id": null,
+      "path": null,
+      "version": 1,
+      "verification_status": "pending",
+      "reviewed_on": "2026-09-06",
+      "review_note": "실제 공급원·자료·노드 증거 미제공"
+    },
+    {
+      "id": "IT_beauty",
+      "marketplace": "IT",
+      "canonical_type": "beauty",
+      "source_node_id": null,
+      "path": null,
+      "version": 1,
+      "verification_status": "pending",
+      "reviewed_on": "2026-09-06",
+      "review_note": "실제 공급원·자료·노드 증거 미제공"
+    },
+    {
+      "id": "IT_skincare",
+      "marketplace": "IT",
+      "canonical_type": "skincare",
+      "source_node_id": null,
+      "path": null,
+      "version": 1,
+      "verification_status": "pending",
+      "reviewed_on": "2026-09-06",
+      "review_note": "실제 공급원·자료·노드 증거 미제공"
+    },
+    {
+      "id": "ES_beauty",
+      "marketplace": "ES",
+      "canonical_type": "beauty",
+      "source_node_id": null,
+      "path": null,
+      "version": 1,
+      "verification_status": "pending",
+      "reviewed_on": "2026-09-06",
+      "review_note": "실제 공급원·자료·노드 증거 미제공"
+    },
+    {
+      "id": "ES_skincare",
+      "marketplace": "ES",
+      "canonical_type": "skincare",
+      "source_node_id": null,
+      "path": null,
+      "version": 1,
+      "verification_status": "pending",
+      "reviewed_on": "2026-09-06",
+      "review_note": "실제 공급원·자료·노드 증거 미제공"
+    }
+  ]
+}

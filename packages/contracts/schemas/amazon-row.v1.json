@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "amazon-row.v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "source_ref",
+    "marketplace",
+    "category_ref",
+    "observation_date",
+    "observed_at",
+    "time_precision",
+    "snapshot_ref",
+    "rank",
+    "asin",
+    "title",
+    "brand",
+    "source_url"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "source_ref": { "type": "string", "pattern": "^[a-zA-Z0-9_-]{1,80}$" },
+    "marketplace": { "enum": ["US", "GB", "DE", "FR", "IT", "ES"] },
+    "category_ref": {
+      "type": "string",
+      "pattern": "^(US|GB|DE|FR|IT|ES)_(beauty|skincare)$"
+    },
+    "observation_date": { "type": "string", "format": "date" },
+    "observed_at": { "type": ["string", "null"], "format": "date-time" },
+    "time_precision": { "enum": ["date", "timestamp"] },
+    "snapshot_ref": { "type": "string", "pattern": "^[a-zA-Z0-9_.:-]{1,100}$" },
+    "rank": { "type": "integer", "minimum": 1, "maximum": 100 },
+    "asin": { "type": "string", "pattern": "^[A-Z0-9]{10}$" },
+    "title": { "type": "string", "minLength": 1, "maxLength": 500 },
+    "brand": { "type": "string", "maxLength": 150 },
+    "source_url": { "type": "string", "format": "uri", "maxLength": 2048 }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "time_precision": { "const": "date" } } },
+      "then": { "properties": { "observed_at": { "type": "null" } } },
+      "else": {
+        "properties": {
+          "observed_at": { "type": "string", "format": "date-time" }
+        }
+      }
+    }
+  ]
+}
